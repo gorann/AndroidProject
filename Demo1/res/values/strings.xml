@@ -10,5 +10,6 @@
     <string name="prezime">Prezime</string>
     <string name="delete">Delete</string>
     <string name="back">Back</string>
+    <string name="adresa">Adresa</string>
 
 </resources>

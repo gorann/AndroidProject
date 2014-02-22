@@ -25,4 +25,14 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#00F3FF" />
 
+    <TextView
+        android:id="@+id/tv_second_adresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="@string/adresa"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#00F3FF" />
+
 </LinearLayout>

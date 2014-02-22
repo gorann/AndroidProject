@@ -29,6 +29,16 @@
         android:inputType="textPersonName"
         android:textColor="#00F3FF" />
 
+    <EditText
+        android:id="@+id/et_main_adresa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/adresa"
+        android:inputType="textPersonName"
+        android:textColor="#00F3FF" /> 
+
     <Button
         android:id="@+id/btn_main"
         android:layout_width="wrap_content"
