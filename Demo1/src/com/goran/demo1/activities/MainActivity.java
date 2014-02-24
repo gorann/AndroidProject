@@ -1,6 +1,7 @@
 package com.goran.demo1.activities;
 
 import com.goran.demo1.R;
+import com.goran.demo1.models.UserModel;
 import com.goran.demo1.utils.C;
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,7 +34,6 @@ public class MainActivity extends BaseActivity {
 		mInputAdresa = (EditText) findViewById(R.id.et_main_adresa);
 		mInputButton = (Button) findViewById(R.id.btn_main);
 		mDeleteButton = (Button) findViewById(R.id.btn_del);
-		
 
 	}
 
@@ -67,12 +67,17 @@ public class MainActivity extends BaseActivity {
 
 		}
 
-		private void startSecondActivity(String tempIme, String tempPrezime, String tempAdresa) {
+		private void startSecondActivity(String tempIme, String tempPrezime,
+				String tempAdresa) {
 			Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-			intent.putExtra(C.MAIN_BUNDLE_KEY_IME, tempIme);
-			intent.putExtra(C.MAIN_BUNDLE_KEY_PREZIME, tempPrezime);
-			intent.putExtra(C.MAIN_BUNDLE_KEY_ADRESA, tempAdresa);
-			intent.getExtras().get("string");
+			// intent.putExtra(C.MAIN_BUNDLE_KEY_IME, tempIme);
+			// intent.putExtra(C.MAIN_BUNDLE_KEY_PREZIME, tempPrezime);
+			// intent.putExtra(C.MAIN_BUNDLE_KEY_ADRESA, tempAdresa);
+			UserModel model = new UserModel();
+			model.setTempIme(tempIme);
+			model.setTempPrezime(tempPrezime);
+			model.setTempAdresa(tempAdresa);
+			intent.putExtra(C.MAIN_BUNDLE_KEY_IME, model);
 			startActivity(intent);
 		}
 	};

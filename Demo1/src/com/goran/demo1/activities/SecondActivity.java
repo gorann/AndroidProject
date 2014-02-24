@@ -1,6 +1,7 @@
 package com.goran.demo1.activities;
 
 import com.goran.demo1.R;
+import com.goran.demo1.models.UserModel;
 import com.goran.demo1.utils.C;
 
 import android.os.Bundle;
@@ -11,9 +12,10 @@ public class SecondActivity extends BaseActivity {
 	private TextView mTextIme;
 	private TextView mTextPrezime;
 	private TextView mTextAdresa;
-	private String tempIme;
-	private String tempPrezime;
-	private String tempAdresa;
+//	private String tempIme;
+//	private String tempPrezime;
+//	private String tempAdresa;
+	private UserModel mUserModel;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,16 +42,23 @@ public class SecondActivity extends BaseActivity {
 	}
 
 	private void initExtras(Bundle extras) {
-		tempIme = extras.getString(C.MAIN_BUNDLE_KEY_IME, tempIme);
-		tempPrezime = extras.getString(C.MAIN_BUNDLE_KEY_PREZIME, tempPrezime);
-		tempAdresa = extras.getString(C.MAIN_BUNDLE_KEY_ADRESA, tempAdresa);
+		// tempIme = extras.getString(C.MAIN_BUNDLE_KEY_IME, tempIme);
+		// tempPrezime = extras.getString(C.MAIN_BUNDLE_KEY_PREZIME,
+		// tempPrezime);
+		// tempAdresa = extras.getString(C.MAIN_BUNDLE_KEY_ADRESA, tempAdresa);
+
+		mUserModel = extras.getParcelable(C.MAIN_BUNDLE_KEY_IME);
 
 	}
 
 	private void setTextView() {
-		mTextIme.setText(tempIme);
-		mTextPrezime.setText(tempPrezime);
-		mTextAdresa.setText(tempAdresa);
+		// mTextIme.setText(tempIme);
+		// mTextPrezime.setText(tempPrezime);
+		// mTextAdresa.setText(tempAdresa);
+
+		mTextIme.setText(mUserModel.getTempIme());
+		mTextPrezime.setText(mUserModel.getTempPrezime());
+		mTextAdresa.setText(mUserModel.getTempAdresa());
 
 	}
 
