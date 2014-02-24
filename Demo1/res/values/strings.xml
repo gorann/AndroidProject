@@ -6,10 +6,11 @@
     <string name="enter_name">Enter Name</string>
     <string name="enter_surname">Enter Surname</string>
     <string name="send">Send</string>
-    <string name="ime">Ime</string>
-    <string name="prezime">Prezime</string>
+    <string name="ime">Name</string>
+    <string name="prezime">Surname</string>
     <string name="delete">Delete</string>
     <string name="back">Back</string>
-    <string name="adresa">Adresa</string>
+    <string name="adresa">Enter Address</string>
+    <string name="_adresa">Address</string>
 
 </resources>
