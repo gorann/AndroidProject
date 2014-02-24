@@ -13,6 +13,7 @@ public class MainActivity extends BaseActivity {
 
 	private EditText mInputTextIme;
 	private EditText mInputTextPrezime;
+	private EditText mInputAdresa;
 	private Button mInputButton;
 	private Button mDeleteButton;
 
@@ -29,15 +30,15 @@ public class MainActivity extends BaseActivity {
 	public void initUi() {
 		mInputTextIme = (EditText) findViewById(R.id.et_main_ime);
 		mInputTextPrezime = (EditText) findViewById(R.id.et_main_prezime);
+		mInputAdresa = (EditText) findViewById(R.id.et_main_adresa);
 		mInputButton = (Button) findViewById(R.id.btn_main);
 		mDeleteButton = (Button) findViewById(R.id.btn_del);
+		
 
 	}
 
 	@Override
 	public void initListeners() {
-		mInputTextIme.setOnClickListener(mClick);
-		mInputTextPrezime.setOnClickListener(mClick);
 		mInputButton.setOnClickListener(mClick);
 		mDeleteButton.setOnClickListener(mClick);
 
@@ -51,11 +52,13 @@ public class MainActivity extends BaseActivity {
 			case R.id.btn_main:
 				String tempIme = mInputTextIme.getText().toString();
 				String tempPrezime = mInputTextPrezime.getText().toString();
-				startSecondActivity(tempIme, tempPrezime);
+				String tempAdreasa = mInputAdresa.getText().toString();
+				startSecondActivity(tempIme, tempPrezime, tempAdreasa);
 				break;
 			case R.id.btn_del:
 				mInputTextIme.setText("");
 				mInputTextPrezime.setText("");
+				mInputAdresa.setText("");
 				break;
 
 			default:
@@ -64,10 +67,11 @@ public class MainActivity extends BaseActivity {
 
 		}
 
-		private void startSecondActivity(String tempIme, String tempPrezime) {
+		private void startSecondActivity(String tempIme, String tempPrezime, String tempAdresa) {
 			Intent intent = new Intent(MainActivity.this, SecondActivity.class);
 			intent.putExtra(C.MAIN_BUNDLE_KEY_IME, tempIme);
 			intent.putExtra(C.MAIN_BUNDLE_KEY_PREZIME, tempPrezime);
+			intent.putExtra(C.MAIN_BUNDLE_KEY_ADRESA, tempAdresa);
 			intent.getExtras().get("string");
 			startActivity(intent);
 		}
