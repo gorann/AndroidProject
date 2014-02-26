@@ -14,9 +14,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends BaseActivity {
+	private ArrayList<UserModel> mUsers = new ArrayList<UserModel>();
 	private EditText mEditTextName, mEditTextSurname, mEditTextAddress;
 	private Button mButtonSubmit, mButtonCancel, mButtonAdd;
-	private ArrayList<UserModel> mUsers = new ArrayList<UserModel>();
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,10 @@ public class MainActivity extends BaseActivity {
 			switch (v.getId()) {
 
 			case R.id.btn_main_submit:
+				String name = mEditTextName.getText().toString();
+				String surname = mEditTextSurname.getText().toString();
+				String address = mEditTextAddress.getText().toString();
+				startSecondActivity(name, surname, address);
 				break;
 
 			case R.id.btn_main_cancel:
@@ -76,7 +81,7 @@ public class MainActivity extends BaseActivity {
 						"Trenutno u listi ima:" + mUsers.size(),
 						Toast.LENGTH_LONG).show();
 
-				startSecondActivityViaUser(mUsers);
+				//startSecondActivityViaUser(mUsers);
 				break;
 
 			default:
@@ -85,15 +90,10 @@ public class MainActivity extends BaseActivity {
 
 		}
 
+		
+
 	};
-
-	private void startSecondActivityViaUser(ArrayList<UserModel> mUsers) {
-		Intent intent = new Intent(this, SecondActivity.class);
-		intent.putParcelableArrayListExtra(C.MAIN_ACTIVITY_BUNDLEY_KEY, mUsers);
-		startActivity(intent);
-
-	}
-
+	
 	private UserModel createUser(String tempTextName, String tempTextSurname,
 			String tempTextAddress) {
 		UserModel model = new UserModel();
@@ -105,10 +105,33 @@ public class MainActivity extends BaseActivity {
 		return model;
 
 	}
-
+	
 	private void addUserToUsersList(UserModel user) {
 		mUsers.add(user);
 
 	}
+	
+	private void startSecondActivity(String name, String surname,
+			String address) {
+		Intent intent = new Intent(this, SecondActivity.class);
+		UserModel model = new UserModel();
+		model.setEnterName(name);
+		model.setEnterSurname(surname);
+		model.setEnterAddress(address);
+		intent.putExtra(C.MAIN_ACTIVITY_BUNDLEY_KEY, model);
+		startActivity(intent);
+		
+	}
+
+//	private void startSecondActivityViaUser(ArrayList<UserModel> mUsers) {
+//		Intent intent = new Intent(this, SecondActivity.class);
+//		intent.putParcelableArrayListExtra(C.MAIN_ACTIVITY_BUNDLEY_KEY, mUsers);
+//		startActivity(intent);
+
+//	}
+
+	
+
+	
 
 }

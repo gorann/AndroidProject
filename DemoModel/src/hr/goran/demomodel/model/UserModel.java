@@ -53,21 +53,21 @@ public class UserModel implements Parcelable {
 		dest.writeString(enterAddress);
 
 	}
-	
-	public static final Parcelable.Creator<UserModel> CREATOR = new Creator<UserModel>(){
+
+	public static final Parcelable.Creator<UserModel> CREATOR = new Creator<UserModel>() {
 
 		@Override
 		public UserModel createFromParcel(Parcel source) {
-			
-			return null;
+
+			return new UserModel(source);
 		}
 
 		@Override
 		public UserModel[] newArray(int size) {
-			
-			return null;
+
+			return new UserModel[size];
 		}
-		
+
 	};
 
 }
